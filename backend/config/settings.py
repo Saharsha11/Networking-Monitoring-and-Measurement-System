@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "api",
+    "router",
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,12 @@ STATIC_URL = 'static/'
 
 MAILERS = {
     'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'network_monitoring',
+        'USER': 'myuser',
+        'PASSWORD': 'awaaz',
+        'HOST': 'localhost',
+        'PORT': '5432',
     },
 }
 
@@ -140,6 +146,11 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    
     "http://localhost:5173",
 ]
+
+OPENWRT_UBUS_URL = "http://192.168.1.1:8000/ubus"
+
+OPENWRT_USERNAME = "root"
+
+OPENWRT_PASSWORD = "YOUR_ROUTER_PASSWORD"
