@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "api",
+    "router",
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,9 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+OPENWRT_UBUS_URL = "http://192.168.1.1:8000/ubus"
+
+OPENWRT_USERNAME = "root"
+
+OPENWRT_PASSWORD = "YOUR_ROUTER_PASSWORD"
