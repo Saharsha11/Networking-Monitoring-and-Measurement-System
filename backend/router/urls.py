@@ -4,7 +4,8 @@ from .views import (
     RouterNetworkView,
     RouterProcessView,
     RouterSystemView,
-    RouterWirelessView
+    RouterWirelessView,
+    RouterDashboardView
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('process/',RouterProcessView.as_view(),name="process"),
     path('system/',RouterSystemView.as_view(),name="system"),
     path('wireless/',RouterWirelessView.as_view(),name="wireless"),
+    path('dashboard/',RouterDashboardView.as_view()),
 ]

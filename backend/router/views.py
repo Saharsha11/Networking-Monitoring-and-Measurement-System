@@ -8,7 +8,7 @@ from .services import(
     get_dhcp_leases,
     get_system_info,
     get_wireless_devices,
-    get_process_list
+    get_process_list,get_dashboard_data
 )
 
 # Create your views here.
@@ -44,3 +44,9 @@ class RouterWirelessView(APIView):
         data = get_wireless_devices()
         return Response(data , status=status.HTTP_200_OK)
 
+class RouterDashboardView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self,request):
+        data = get_dashboard_data()
+        return Response(data)
