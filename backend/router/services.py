@@ -53,3 +53,22 @@ def get_process_list():
         "luci",
         "getProcessList",
     )
+
+def get_dashboard_data():
+    client = get_ubus_client()
+
+    board = client.call("system","board")
+    system = client.call("system", "info")
+    network = client.call("luci-rpc", "getNetworkDevices")
+    wireless = client.call("luci-rpc", "getWirelessDevices")
+    dhcp = client.call("luci-rpc", "getDHCPLeases")
+    process = client.call("luci","getProcessList")
+
+    return {
+        "board":board["result"][1],
+        "system": system["result"][1],
+        "network": network["result"][1],
+        "wireless": wireless["result"][1],
+        "dhcp": dhcp["result"][1],
+        "process":process["result"][1]
+    }
