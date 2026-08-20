@@ -46,7 +46,6 @@ class UbusClient:
 
         try:
             self.session_id = data["result"][1]["ubus_rpc_session"]
-            print(self.session_id)
         except (KeyError, IndexError, TypeError):
             raise Exception(
                 f"Could not obtain Ubus session ID: {data}"
