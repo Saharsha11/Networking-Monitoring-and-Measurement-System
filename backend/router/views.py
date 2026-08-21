@@ -10,7 +10,7 @@ from .services import(
     get_wireless_devices,
     get_process_list,get_dashboard_data
 )
-
+from .serializers import DashboardSerializer
 # Create your views here.
 class RouterSystemView(APIView):
     permission_classes = [AllowAny]
@@ -49,4 +49,5 @@ class RouterDashboardView(APIView):
 
     def get(self,request):
         data = get_dashboard_data()
-        return Response(data)
+        serializer = DashboardSerializer(data)
+        return Response(serializer.data)
