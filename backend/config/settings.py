@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "api",
     "router",
     'rest_framework_simplejwt',
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -155,3 +156,5 @@ OPENWRT_UBUS_URL = "http://192.168.1.1:8000/ubus"
 OPENWRT_USERNAME = "root"
 
 OPENWRT_PASSWORD = "Kxr5UnE"
+
+AUTH_USER_MODEL = "users.User"
